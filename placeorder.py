@@ -7,15 +7,16 @@ from sklearn.metrics.pairwise import cosine_similarity
 from datetime import datetime
 import json
 import uuid
+from config import settings
 
 app = FastAPI()
 
 DB_CONFIG = {
-    "host": "ep-raspy-unit-a4m6t5po.us-east-1.aws.neon.tech",
-    "database": "neondb",
-    "user": "neondb_owner",
-    "password": "WEbmtL3x8MXu",
-    "sslmode": "require"
+    "host": settings.DB_HOST,
+    "database": settings.DB_NAME,
+    "user": settings.DB_USER,
+    "password": settings.DB_PASSWORD,
+    "sslmode": settings.DB_SSLMODE,
 }
 
 class OrderItem(BaseModel):
